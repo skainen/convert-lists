@@ -133,7 +133,7 @@ tr{page-break-inside:avoid;}
 .keskelle {text-align: center;}
 .vasen {text-align: left;display: flex;width: 100%;}
 body {font-family: Arial, Helvetica, sans-serif;}
-.istekki {background-image:url(logo.jpg);background-size: 30%;background-repeat:no-repeat;background-position-x:500px;background-position-y:-30%;}
+.comp {background-image:url(logo.jpg);background-size: 30%;background-repeat:no-repeat;background-position-x:500px;background-position-y:-30%;}
 header { height: 100px;}
 header img {height: 100%;margin-left: 25%;}
 footer {margin-top: 100px;width: 100%;justify-content: center;}
