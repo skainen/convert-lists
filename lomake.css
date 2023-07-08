@@ -1,0 +1,366 @@
+input[type=text] {border: none;border-bottom: black solid 1px;background-color:#eee ;border-radius: 0;width: 100%;}
+#myInput {position:absolute;top:135px;left:50px;z-index: 10;}
+#myInput1 {position:absolute;top:300px;left:50px;z-index: 10;}
+.lyhytext[type=text] {width: 90%;}
+.tablecontainer{display: flex;}
+.tablecontainer table {width:200px;}
+.tablecontainer th {height:75px;}
+.tilausnumero{
+  font-size: 1.5em;
+  position:absolute;
+  top:300px;
+  left:40px;
+  width:300px;
+  height: 120px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color:#a8c034;
+  padding: 10px 20px;
+  border-radius:10px;
+}
+.laite{
+  font-size: 1.5em;
+  position:absolute;
+  top:100px;
+  left:40px;
+  width:300px;
+  height: 120px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color:#a8c034;
+  padding: 10px 20px;
+  border-radius:10px;
+}
+
+.valittulaite{
+  text-align:center;
+  width:900px;
+  position:relative;
+  left:20px;
+
+  
+}
+
+  /* The container */
+.container {
+  display: block;
+  position: relative;
+  padding-right: 25px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
+  z-index: 10;
+  opacity:0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+position: absolute;
+  background-color: lightgray;
+  height:20px;
+  width:20px;
+  color: white;
+  font-size:1em;
+  line-height:0.9em;
+}
+
+/* On mouse-over, add a grey background color
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a green background */
+.container input:checked ~ .checkmark {
+  background-color: #a8c034;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  position: absolute;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+  content: "\2714";
+  padding-left:2px;
+  padding-top:2px;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  content: "";
+}
+
+.container input[disabled]:checked ~ .checkmark{
+  background-color: #a8c034;
+}
+
+textarea {width: 95%;resize: none;margin: 0 2.5%;border-spacing: 0;}
+nav {background-color: #a8c034;height: 100%; width: 450px;position: absolute;left: -10px;top: 0;}
+nav:hover {animation:navi 0.25s 1 forwards;}
+    @keyframes navi {
+    from {left: -10px;}
+    to {left: 0;}
+  }
+h1 {font-size: 2em;text-align: center;color: white;text-decoration: underline;}
+a {color:black;}
+li a {text-decoration: none;color:white;}
+a:hover {color: lightgray;}
+ul {list-style-type: none;margin: 50px 0;}
+li {margin: 20px 0;font-size: 1.5em;}
+input[type=button],button {border:white double 5px;font-size: 1em;padding: 10px 20px;background-color: #a8c034;font-weight: bolder;position:relative;right: 270px;margin-bottom: 50px;width: 150px;border-radius:10px;top:144px;}
+input[type=submit] {border:white double 5px;font-size: 1em;padding: 10px 20px;background-color: #a8c034;font-weight: bolder;position: absolute;left: 50px;margin-top: 20px;width: 130px;border-radius:10px;}
+#search {top:170px;left:230px}
+#search1 {top:370px;left:230px}
+button:hover,input[type=button]:hover,input[type=submit]:hover {background-color: #748e00;}
+select {width: 100%;}
+label{margin-right: 10px;}
+table{border: black solid 1px;/*margin:0 30%;*/width: 700px;left:20%;top:50px;position:relative;}
+th {background-color: #a8c034;padding: 10px 10px 7px;border:solid 1px black;page-break-before:always;}
+td {padding: 2px 2px 15px 2px;width: 50%;text-align: right;page-break-after:always;}
+tr{page-break-inside:avoid;}
+.keskelle {text-align: center;}
+.vasen {text-align: left;display: flex;width: 100%;}
+body {font-family: Arial, Helvetica, sans-serif;}
+.istekki {background-image:url(logo.jpg);background-size: 30%;background-repeat:no-repeat;background-position-x:500px;background-position-y:-30%;}
+header { height: 100px;}
+header img {height: 100%;margin-left: 25%;}
+footer {margin-top: 100px;width: 100%;justify-content: center;}
+footer img {margin: 5px 0 0;width: 70%;margin: 0 15%;}
+.tuloste {width:60%;margin:100px 20% 0;}
+.sisennys  td .container {padding-left: 50px;}
+p {text-align: left;}
+#printable {position:absolute;left:500px;top:100px;padding-bottom: 50px;background-color: white;}
+#printable table {width:800px;margin-left:50px;top:0;left:0;}
+.yhteys{width: 800px;margin-left: 50px;}
+.logo {height: 50px;margin-left: 50px;}
+.autocomplete {
+  /*the container must be positioned relative:*/
+  position: relative;
+  display: inline-block;}
+
+  .autocomplete-items {
+    position: absolute;
+    z-index: 99;
+    /*position the autocomplete items to be the same width as the container:*/
+    top: 135px;
+    left: 20px;
+  }
+
+  .autocomplete-items1 {
+    position: absolute;
+    z-index: 99;
+    /*position the autocomplete items to be the same width as the container:*/
+    top: 325px;
+    left: 20px;
+  }
+
+  .autocomplete-items div{
+    position: relative;top:20px;left:30px;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #a8c034;
+    color:white;
+    border-bottom: 1px solid #d4d4d4;
+    border-right: solid #d4d4d4;
+    border-left: 1px solid #d4d4d4;
+  }
+  .autocomplete-items1 div{
+    position: relative;top:-5px;left:30px;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #a8c034;
+    color:white;
+    border-bottom: 1px solid #d4d4d4;
+    border-right: solid #d4d4d4;
+    border-left: 1px solid #d4d4d4;
+  }
+
+
+  .autocomplete-items div:hover{
+    /*when hovering an item:*/
+    background-color: #748e00;
+  }
+  .autocomplete-active {
+    /*when navigating through the items using the arrow keys:*/
+    background-color:  #748e00 !important;
+    color: #ffffff;
+  }
+
+  .autocomplete-items1 div:hover{
+    /*when hovering an item:*/
+    background-color: #748e00;
+  }
+  .autocomplete-active1 {
+    /*when navigating through the items using the arrow keys:*/
+    background-color:  #748e00 !important;
+    color: #ffffff;
+  }
+
+  #muokkaa{
+    position:relative;
+    top:35px;
+    left:426px;
+
+  }
+  #muokkaa1{
+    position:relative;
+    top:-68px;
+    left:426px;
+  }
+  #muokkaa2{
+    position:relative;
+    top:35px;
+    left:426px;
+  }
+
+#siirry{
+  position:relative;
+  top: 36px;
+  left: 1003px;
+}
+#siirry1{
+  position: relative;
+  top: 36px;
+  left: 1003px;
+}
+
+
+
+#siirry2{
+  position:relative;
+  top:36px;
+  left:1003px;
+}
+  #tallenna{
+    position:relative;
+    top:-90px;
+    left:1003px;
+  }
+  #tallenna1{
+    position: relative;
+    top: 37px;
+    left: 1003px;
+}
+
+
+  
+  #tallenna2{
+    position: relative;
+    top: -72px;
+    left: 1003px;
+  }
+
+  #etusivu {
+    position:absolute;
+    top: 0px;
+    left:40px;
+  }
+
+  
+  @media only screen and (max-width: 2000px) {
+
+
+    table {
+      left:430px;
+    }
+    #printable {
+      left:230px;
+      margin:auto;
+    }
+    button{
+      left:1080px;
+    }
+
+   
+  }
+  @media all{
+    .page-break{display:none;}
+  }
+  @media print{
+    .page-break{
+      display:block;page-break-before:always;
+      
+    }
+
+   
+
+    .logo{
+      height:50px;
+      margin-left: 212.4px;
+      margin-bottom:-40px;
+      
+    }
+   
+    .yhteys{
+      margin-top:50.8px;
+      margin-left:212.1px;
+      width:699.5px;
+      padding-right:400px;
+    }
+    
+      .noPrint{
+        display:none;
+      }
+  }
+
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    #printable {
+      position:static;
+      padding-bottom: 50px;
+      background-color: white;
+    }
+      #printable table {margin-left: 250px;}
+      /*td {
+        word-wrap: break-word;
+        -ms-word-break: normal;
+        word-break: break-word;
+        white-space: pre-wrap;
+      }*/
+     
+
+
+      .logo{
+        height:50px;
+        margin-left: 250px;
+        margin-bottom: 10px;
+      }
+     
+      .yhteys{
+        margin-top:0;
+        margin-left:250px;
+        width:800px;
+        padding-right:400px;
+      }
+      
+}
+@-moz-document url-prefix() {
+  @media print{
+    .logo{
+      height:50px;
+      margin-left: 270px;
+      margin-bottom:-40px;
+      
+    }
+    .yhteys{
+      margin-top:50px;
+      margin-left: 270px;
+      width:699.5px;
+      padding-right:400px;
+    }
+      .noPrint{
+        display:none;
+      }
+  }
+}
