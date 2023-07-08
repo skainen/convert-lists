@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="lomake.css">
 <title>Etusivu</title>
 </head>
-<body class="istekki">
+<body class="comp">
   <nav>
       <h1>Uusi lomake</h1>
 <ul>
