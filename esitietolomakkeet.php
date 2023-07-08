@@ -192,7 +192,7 @@ if (mysqli_num_rows($result) > 0){
 }
 
 
-echo "</table><img src='istekkiyhteys.png' alt='yhteys' class='yhteys'></div>";
+echo "</table><img src='yhteys.png' alt='yhteys' class='yhteys'></div>";
 
 
 //Lopuksi tietokantayhteyden katkaiseminen.
