@@ -3,20 +3,16 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://www.istekki.fi/istekki-theme-v2/images/favicon.ico" type="image/x-icon" rel="icon">
 <link rel="stylesheet" href="lomake.css">
 <meta charset="UTF-8">
 <title>Esitietolomakkeet</title>
 </head>
 <body>
-<!--<header><img src="image002.png" alt="logo"></header-->
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.debug.js"></script>
-<!--<button onClick="printToPDF();">
-  Tulosta PDF
-</button><br><br>-->
+  
 <form action="./etusivu.php" method="post">
 <input class="noPrint" type="submit" value="Etusivulle">
 </form>
