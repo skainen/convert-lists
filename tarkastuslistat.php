@@ -2,7 +2,6 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://www.istekki.fi/istekki-theme-v2/images/favicon.ico" type="image/x-icon" rel="icon">
 <link rel="stylesheet" href="lomake.css">
 <meta charset="UTF-8">
 <title>Tarkastuslistat</title>
@@ -226,7 +225,7 @@ if (mysqli_num_rows($result3) > 0){
 //Lopuksi tietokantayhteyden katkaiseminen.
 
 }
-echo "</table><img src='istekkiyhteys.png' alt='yhteys' class='yhteys'></div>";
+echo "</table><img src='yhteys.png' alt='yhteys' class='yhteys'></div>";
 }
 else {
     // Jos tuloksia 0, tulostetaan tieto.
