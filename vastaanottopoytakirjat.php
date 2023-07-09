@@ -7,14 +7,9 @@
 <title>Vastaanottopoytakirjat</title>
 </head>
 <body>
-
-
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://raw.githubusercontent.com/CodeYellowBV/html2canvas/master/build/html2canvas.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.debug.js"></script>
-<!--<button onClick="printToPDF();">
-  Tulosta PDF
-</button><br><br>-->
 <form action="./etusivu.php" method="post">
 <input class="noPrint" type="submit" value="Etusivulle">
 </form>
@@ -44,10 +39,6 @@ $conn->set_charset("utf8");
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-
-  
-
-
 //SQL -kysely
 echo '<div id="printable"><img src="logo.jpg" alt="logo" class="logo"><table>';
 $sql = "SELECT vastaanotto.pvm as PVM, laite.Kauppanimike as Laitenimi, laite.Laitetunnus as Laitetunnus, laite.Toimittaja as Toimittaja, laite.Sarjanumero as Sarjanumero, laite.LaiteID as LaiteID FROM vastaanotto INNER JOIN laite ON vastaanotto.LaiteID=laite.LaiteID WHERE vastaanotto.PoytakirjaID='$poytakirjaID'" ;
@@ -72,8 +63,6 @@ if (mysqli_num_rows($result) > 0){
   echo "Ei lisättäviä tietoja";
 }
 //SQL -kysely
-
-
 
 $sql = "SELECT vastaanotto_vastaukset.vastaus as vastaus, vastaanotto_vastaukset.huom as huom, vastaanotto_kysymykset.kysymys as kysymys, vastaanotto_kysymykset.kysymysID as kysymysID, vastaanotto_kysymykset.tyyppiID as tyyppiID FROM vastaanotto_vastaukset INNER JOIN vastaanotto_kysymykset ON vastaanotto_vastaukset.kysymysID=vastaanotto_kysymykset.kysymysID WHERE vastaanotto_vastaukset.PoytakirjaID=$poytakirjaID ORDER BY vastaanotto_kysymykset.kysymysID";
 $result = mysqli_query($conn, $sql);
@@ -111,7 +100,6 @@ if (mysqli_num_rows($result) > 0){
     }
     
 
-
     //Checkboxit
 
     if($row["vastaus"]=='1'){
@@ -121,8 +109,6 @@ if (mysqli_num_rows($result) > 0){
       echo"<span class='checkmark'></span></label>";
      echo "<label for='checkbox'></label>";
       echo "".$kysy."</td></tr>";
-      /*echo'<tr><td class="vasen"><input type="checkbox" disabled = "disabled" checked>';
-      echo  ''.$row["kysymys"].'</td></tr>';*/
        }
      elseif($row["vastaus"]=='0'){
 
@@ -131,8 +117,6 @@ if (mysqli_num_rows($result) > 0){
       echo"<span class='checkmark'></span></label>";
      echo"<label for='checkbox'></label>";
       echo "".$kysy."</td></tr>";
-      /* echo'<tr><td class="vasen"><input type="checkbox" disabled = "disabled">';
-       echo  ''.$row["kysymys"].'</td></tr>';*/
          }
          
      else
@@ -162,29 +146,7 @@ if (mysqli_num_rows($result) > 0){
       {
         echo "<tr><td class='vasen'>".$huom."<br></td></tr>";
       }
-
-      // echo"<input type='hidden' form='huom' name='".$kysymysID."' value='".$huom."'>";
-      // echo"<input type='hidden' form='tale' name='".$kysymysID."' value='".$huom."'>";
      }
-     /*if(isset($_GET["e$kysymysID"]))
-     { 
-       $huom2=$_GET["e$kysymysID"];
-       echo "<tr><td class='vasen'> ".$huom2."<br></td></tr>";
-      // echo"<input type='hidden' form='huom' name='".$kysymysID."' value='".$huom2."'>";
-    //   echo"<input type='hidden' form='tale' name='".$kysymysID."' value='".$huom2."'>";
-     }*/
-     
-     
-     
- 
-
-   
-
-
-   // echo  '<tr><td>'.$row["kysymys"].'</td><td class="vasen">'.$row["vastaus"].'</td></tr>';
-
-
-
     }
   
 } else {
@@ -199,23 +161,6 @@ echo "</table><img src='yhteys.png' alt='yhteys' class='yhteys'></div>";
 
 //Lopuksi tietokantayhteyden katkaiseminen.
 $conn->close();
-
-
-
-
-
-/*
-
-else {
-    // Jos tuloksia 0, tulostetaan tieto.
-      echo "Ei lisättävÄÄ tietoja";
-      echo "Error: " . $sql . "<br>" . $conn->error;
-    }*/
-
-    
-    
- //}
-    
 ?>
 
 <script>
