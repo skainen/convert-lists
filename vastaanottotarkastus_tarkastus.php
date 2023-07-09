@@ -18,7 +18,6 @@ $_SESSION["vastaukset"]=array();
 $_SESSION["vastaukset"]=$_POST['vastaus'];
 $date=date("Y-m-d");
 
-
 // Luo yhteys
 $conn = new mysqli($servername, $username, $password, $dbname);
 $conn->set_charset("utf8");
@@ -29,12 +28,6 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 else{
-
-  
-  
-
-
-
 //SQL -kysely
 
 $sql = "SELECT * FROM vastaanotto_kysymykset";
@@ -56,15 +49,10 @@ if (mysqli_num_rows($result) > 0){
       $_SESSION["toimittaja"]=$_POST["toimittaja"];
       $toimittaja=$_POST["toimittaja"];
 
-      
       echo"<tr><td><b>Laite:</b></td><td class='vasen'>".$laite."</td></tr>";  
       echo"<tr><td><b>Toimittaja:</b></td><td class='vasen'>".$toimittaja."</td></tr>";
       echo"<tr><td><b>Sarjanumero:</b></td><td class='vasen'>".$sarjanumero."</td></tr>";  
       echo"<tr><td><b>Laitetunnus:</b></td><td class='vasen'>".$laitetunnus."</td></tr>";
-    
-      
-  
-   
     $i=0;
     $_SESSION["vastaukset"]=$_POST['vastaus'];
    
@@ -96,10 +84,6 @@ if (mysqli_num_rows($result) > 0){
       echo '</table><table>';
     }
    
-    
-    
-
-    
     if($_POST["vastaus"][$i]=='1'){ 
       echo "<tr><td class='vasen' style='font-size:120%;'><label class='container'><input type='checkbox' checked disabled = 'disabled'>";
       echo"<span class='checkmark'></span></label><label for='checkbox'></label>";
@@ -124,11 +108,7 @@ if (mysqli_num_rows($result) > 0){
       }
       
       echo "<td class='vasen'>".$_POST["vastaus"][$i]."</td></tr>";
-      
-    
     }
-
-     
      
     // Jos huom on tyhjä, ei tulosteta.
     
@@ -153,7 +133,6 @@ if (mysqli_num_rows($result) > 0){
     echo"<input type='hidden' form='tale' name='".$kysymysID."' value='".$huom2."'>";
   }
   
-  
   $i++;
 
   }
@@ -161,18 +140,12 @@ if (mysqli_num_rows($result) > 0){
   echo "<input type='submit' id='tallenna1' name='tallenna' value='Tallenna'><br><br><br>
 </form>";
 
-
-
 echo "<form id='huom' action='./vastaanottotarkastus.php' method='post'>";
   
 $sql = "SELECT * FROM vastaanotto_kysymykset";
 $result = mysqli_query($conn, $sql);
 //Jos rivejä on enemmän kuin 0, tulostetaan rivit while –silmukassa allekkain.
 if (mysqli_num_rows($result) > 0){
-
-
-
-
 
   while($row = mysqli_fetch_assoc($result)) {
   
@@ -192,39 +165,18 @@ if (mysqli_num_rows($result) > 0){
     
     echo"<input type='hidden' form='huom' name='".$kysymysID."' value='".$huom2."'>";
    
-  }
-
-
-
-
-}
-}
-
+  }}}}
   
-}
-
-
 else {
 // Jos tuloksia 0, tulostetaan tieto.
   echo "0 results";
 }
 
-
-
 echo "<input type='submit' id='muokkaa1'name='etusivu' value='Muokkaa&#9998;'><br><br><br>
 </form>";
 
-
-
-
-
-
-
 $laiteID=$_POST['LaiteID'];
 $_SESSION['laite']=$laiteID;
-
-
-
 
 //Lopuksi tietokantayhteyden katkaiseminen.
 $conn->close();
