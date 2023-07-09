@@ -20,24 +20,18 @@ if(e.toLowerCase()==countries[i].toLowerCase())
 
   j=1;
 }
- 
-
 }
-
 if(j==1)
 {
   alert("Sarjanumerolla "+ e+" on jo syötetty laite! \n Hae arkistosta laitteen täytetty esitietolomake.");
   document.getElementById("sarjanumerot").value = "";
-
 }
-
-
 }
 //Compare3 loppuu
 </script>
 </head>
 <body>
-  
+
 <?php
 session_start();
 $servername = "localhost";
@@ -48,7 +42,6 @@ $dbname = "listaprojekti";
 // Luo yhteys
 $conn = new mysqli($servername, $username, $password, $dbname);
 $conn->set_charset("utf8");
-
 
 // Tarkastaa yhteyden
 if ($conn->connect_error) {
@@ -63,10 +56,8 @@ else{
     $a=array();
     while($row = mysqli_fetch_assoc($result)) {
       array_push($a, $row["Sarjanumero"]);
-      
     }
   }
-  
   ?>
   
   <script>
@@ -74,10 +65,7 @@ else{
   // Access the array elements
   var passedArray = 
       <?php echo json_encode($a); ?>;
-        
-
   </script>
-
 <?php
    echo "<table>
    <tr><th colspan='2' style='font-size:140%;'>Esitietolomake</th></tr>
@@ -147,10 +135,8 @@ if (mysqli_num_rows($result) > 0){
           echo"<option value='".$arvo."'>".$vaihtoehto."</option>";
          }
         }
-        echo"</select></td></tr>";
-       
+        echo"</select></td></tr>";  
     }
-    
   }
 }
     else
@@ -209,9 +195,6 @@ echo '<input type="submit" id="siirry" value="Siirry">
 echo'<form action="./etusivu.php" method="post">
 <input  type="submit" id="etusivu" value="Etusivulle">
 </form>';
-
-
-
 
 //Lopuksi tietokantayhteyden katkaiseminen.
 $conn->close();
