@@ -15,7 +15,6 @@ window.onload=function()
   session_start();
   ?>
 
-
 <form autocomplete="off" action="./arkisto.php" method="post">
   <div class="autocomplete" style="width:300px;">
     <input id="myInput" type="text" name="tilausnro" pattern="[A-Öa-ö0-9-,.\s]{1,}" placeholder="Tilausnumero">
@@ -23,7 +22,6 @@ window.onload=function()
   <label class="laite"><b>Valitse tilausnumero</b></label>
   <input type="submit" id="search" value="Näytä">
 </form>
-
 
 <script>
 
@@ -114,12 +112,10 @@ function autocomplete(inp, arr) {
       }
     }
   }
-
   document.addEventListener("click", function (e) {
       closeAllLists(e.target);
   });
 }
-
 
 </script>
 
@@ -148,7 +144,6 @@ if (mysqli_num_rows($result) > 0){
 
 ?>
 
-
 <script>
   
 // Access the array elements
@@ -157,8 +152,6 @@ var passedArray =
        
 autocomplete(document.getElementById("myInput"), passedArray);
 </script>
-
-
 
 <?php
 
@@ -180,9 +173,6 @@ echo '<form autocomplete="off" action="./arkisto.php" method="post">
   
   
 </form>';
-
-
-
 ?>
 
 <script>
@@ -279,13 +269,9 @@ function autocomplete(inp, arr) {
   });
 }
 
-
 </script>
 
-
-
 <?php
-
 
 $sql = "SELECT Sarjanumero FROM laite WHERE Tilausnro='$tilausnro'";
 
@@ -297,15 +283,11 @@ if (mysqli_num_rows($result) > 0){
   $a=array();
   while($row = mysqli_fetch_assoc($result)) {
     array_push($a, $row["Sarjanumero"]);
-
   }
 
 }
-
-
+  
 ?>
-
-
 <script>
   
 var passedArray1 = 
@@ -314,10 +296,7 @@ var passedArray1 =
 autocomplete(document.getElementById("myInput1"), passedArray1);
 </script>
 
-
 <?php
-
-
 }
 
 
@@ -345,10 +324,6 @@ if(isset($_POST["sarjanumero"])){
     echo '</table>';
 }
 
-
-
-
-
 $sql="SELECT vastaanotto.PoytakirjaID, vastaanotto.PVM FROM vastaanotto INNER JOIN laite ON vastaanotto.LaiteID=laite.LaiteID WHERE Sarjanumero='$sarjanumero'";
 
 $result = mysqli_query($conn, $sql);
@@ -365,10 +340,6 @@ if (mysqli_num_rows($result) > 0){
   }
   echo '</table>';
 }
-
-
-
-
 
 $sql="SELECT tarkastuslista.tarkastuslistaID, tarkastuslista.PVM FROM tarkastuslista INNER JOIN laite ON tarkastuslista.LaiteID=laite.LaiteID WHERE Sarjanumero='$sarjanumero'";
 
@@ -389,16 +360,11 @@ if (mysqli_num_rows($result) > 0){
 echo '</div>';
 }
 
-
-
 echo '<form action="etusivu.php" method="post">
       <input type="submit" id="etusivu" value="Etusivulle">
       </form>';
 
-
 $conn->close();
-
-
 ?>
 
 </body>
