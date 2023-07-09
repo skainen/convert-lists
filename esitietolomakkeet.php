@@ -42,10 +42,6 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-
-
-  
-
 //SQL -kysely
 echo '<div id="printable"><img src="logo.jpg" alt="logo" class="logo"><table>';
 $sql = "SELECT esitietolomake.pvm as PVM, laite.Kauppanimike as Laitenimi, laite.LaiteID as laiteID  FROM esitietolomake INNER JOIN laite ON esitietolomake.LaiteID=laite.LaiteID WHERE esitietolomake.EsitietoID='$esitietoID'" ;
@@ -66,7 +62,6 @@ if (mysqli_num_rows($result) > 0){
 // Jos tuloksia 0, tulostetaan tieto.
   echo "Ei lisättäviä tietoja";
 }
-
 
 $sql2 = "SELECT * FROM laite WHERE LaiteID=$laiteID";
 $result2 = mysqli_query($conn, $sql2);
@@ -89,18 +84,11 @@ if (mysqli_num_rows($result2) > 0){
   $mac=$row['MAC'];
   $muuta=$row['Muuta'];
   $tilausnro=$row['Tilausnro'];
-
-
-
-
  }
 }
 else{
   echo "Error: " . $sql . "<br>" . $conn->error;
-
-
-}
-    
+}   
 
 //SQL -kysely
 $sql = "SELECT * FROM esitieto_kysymykset";
@@ -191,14 +179,11 @@ if (mysqli_num_rows($result) > 0){
   echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
-
 echo "</table><img src='yhteys.png' alt='yhteys' class='yhteys'></div>";
-
 
 //Lopuksi tietokantayhteyden katkaiseminen.
 $conn->close();
     
-
 ?> 
 
 <script>
@@ -217,7 +202,6 @@ function printDiv(printable,
  mywindow.document.close(); // necessary for IE >= 10
  mywindow.focus(); // necessary for IE >= 10*/
  mywindow.setTimeout(function(){ mywindow.print();mywindow.close();}, 3000);
-
 
   return true;
 }
