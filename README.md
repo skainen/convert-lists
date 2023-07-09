@@ -5,3 +5,4 @@ I was the project leader for a group of three. Our customer had paper lists that
 The database is not included.
 
 These examples are intended to showcase my experimentation with the basics of web development.
+This was my first "bigger" project.
