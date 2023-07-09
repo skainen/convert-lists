@@ -18,10 +18,6 @@ window.onload=function()
   ?>
 
 
-
-
-
-
 <form autocomplete="off" action="./tarkastuslista.php" method="post">
   <div class="autocomplete" style="width:300px;">
     <input id="myInput" type="text" pattern="[A-Öa-ö0-9-,.\s]{1,}" name="sarjanumero" placeholder="Sarjanumero">
@@ -36,9 +32,7 @@ window.onload=function()
 
 <script>
 function autocomplete(inp, arr) {
-
   var currentFocus;
-
   
   inp.addEventListener("input", function(e) {
       var a, b, i, val = this.value;
@@ -122,13 +116,10 @@ function autocomplete(inp, arr) {
       }
     }
   }
-
   document.addEventListener("click", function (e) {
       closeAllLists(e.target);
   });
 }
-
-
 </script>
 <?php
 $servername = "localhost";
@@ -159,20 +150,15 @@ if(isset($_POST["etusivu"]))
   ?>
   
   <script>
-    
+
   // Access the array elements
   var passedArray = 
       <?php echo json_encode($a); ?>;
-         
-  
-  
   autocomplete(document.getElementById("myInput"), passedArray);
   </script>
   
-  
   <?php
-  
-
+    
   echo"<table>
   <!--Taulukon ensimmäinen rivi on lomakkeen otsikko-->
   <tr><th colspan=2 style='font-size:140%;'>THT Vastaanottotarkastajan tarkastuslista (huom. laitevalmistajan ohjeistukset)</th><label for='text'></label></th></tr>
@@ -195,11 +181,8 @@ if(isset($_POST["etusivu"]))
   } else {
     echo "0 results";
   }
-
   }
-
 }
-
 else{
 $sql = "SELECT Sarjanumero FROM laite";
 $result = mysqli_query($conn, $sql);
@@ -208,9 +191,7 @@ if (mysqli_num_rows($result) > 0){
   $a=array();
   while($row = mysqli_fetch_assoc($result)) {
     array_push($a, $row["Sarjanumero"]);
-    
   }
-
 ?>
 
 <script>
@@ -218,9 +199,6 @@ if (mysqli_num_rows($result) > 0){
 // Access the array elements
 var passedArray = 
     <?php echo json_encode($a); ?>;
-       
-
-
 autocomplete(document.getElementById("myInput"), passedArray);
 </script>
 
@@ -230,15 +208,6 @@ autocomplete(document.getElementById("myInput"), passedArray);
 }
 
 //Piilotetaan kaikki
-
-
-
-  
-
-
-
-
-
 
 echo " <!--Luodaan taulukko-->
   <table>
@@ -250,9 +219,6 @@ echo " <!--Luodaan taulukko-->
 
 if(isset($_POST["sarjanumero"]) || isset($_POST["etusivu"]))
 {
-
-
-
 if(isset($_POST["sarjanumero"])){
   $sarjanumero=$_POST["sarjanumero"];
   
@@ -293,21 +259,13 @@ if (mysqli_num_rows($result3) > 0){
     }
     elseif($row["kysymysID"]==20){
       echo '</table><table>';
-      
     }
-    
-   
     $kysymysid = $row["kysymysID"];
-
-
 
     //ETUSIVULLE
     if(isset($_POST['etusivu'])){
       
       $vastaus = $_SESSION["vastaukset"][$i];
-      
-      
-   
       
         if($row["tyyppiID"]==2){
           if($vastaus=="1"){
@@ -317,29 +275,17 @@ if (mysqli_num_rows($result3) > 0){
           else{
             
           echo "<tr><td colspan='2' class='vasen' style='font-size:115%;'><label class='container'><input type='hidden' name='vastaus[]' value='0'><input type='checkbox' onclick='this.previousSibling.value=1-this.previousSibling.value'>";
-        }echo"<span class='checkmark'></span></label><label for='checkbox'><b>$kysy</b></label></td></tr>";
-    
-             
+        }echo"<span class='checkmark'></span></label><label for='checkbox'><b>$kysy</b></label></td></tr>";    
         }
-        
-        elseif($row["tyyppiID"]==8){
-         
-          
-            echo "<tr><td class='vasen' style='font-size:115%;'><label for='text'><b>$kysy</b></label></td></tr>";
-    
-          echo'</script>';
-        
+        elseif($row["tyyppiID"]==8){    
+            echo "<tr><td class='vasen' style='font-size:115%;'><label for='text'><b>$kysy</b></label></td></tr></script>";
       }
       if($row["tyyppiID"]==2)
       {
         $i++;
-
       }
-    
-
       $sql2 = "SELECT alikysymys, alikysymysID FROM tarkastuslista_alikysymykset WHERE kysymysID=$kysymysid";
-$result2 = mysqli_query($conn, $sql2);
-
+      $result2 = mysqli_query($conn, $sql2);
 
 //Jos rivejä on enemmän kuin 0, tulostetaan rivit while –silmukassa allekkain.
 if (mysqli_num_rows($result2) > 0){
@@ -358,9 +304,7 @@ if (mysqli_num_rows($result2) > 0){
       echo"<span class='checkmark'></span></label><label for='checkbox'>$alikysy</label></td></tr>";}
 $i++;
   }
-
-
-      //Loppuuu
+      //Loppuu
     }}
     
 
@@ -371,8 +315,6 @@ $i++;
     if($row["tyyppiID"]==2){
       echo "<tr><td colspan='2' class='vasen' style='font-size:115%;'><label class='container'><input type='hidden' name='vastaus[]' value='0'><input type='checkbox' onclick='this.previousSibling.value=1-this.previousSibling.value'>
       <span class='checkmark'></span></label><label for='checkbox'><b>$kysy</b></label></td></tr>";
-
-         
     }
     
     elseif($row["tyyppiID"]==8){
@@ -393,18 +335,14 @@ $i++;
       <span class='checkmark'></span></label><label for='checkbox'>$alikysy</label></td></tr>";
       $i++;
     }
-    
-  
-        //Loppuuu
+        //Loppuu
       }}
-
   }
   
   echo "<tr><td><p>HUOM.<i>”Säteilylaitteen turvallinen toiminta on varmistettava merkittävän korjauksen,
   huollon tai ohjelmistopäivityksen jälkeen ja aina, kun on aihetta epäillä laitteen toiminnassa häiriöitä tai muutoksia.</i>
   Säteilyturvallisuuteen vaikuttavat viat ja puutteet on korjattava ennen käyttöä”<i>S/5/2019 kohta 24 §</i></p></td></tr></table>";
 } 
-
 
 else {
 // Jos tuloksia 0, tulostetaan tieto.
@@ -418,11 +356,8 @@ echo '<input type="submit" id="siirry2" name="siirry" value="Seuraava"><br><br><
 
 }
 
-  
-
 //Lopuksi tietokantayhteyden katkaiseminen.
 $conn->close();
-
 
 ?>
 
