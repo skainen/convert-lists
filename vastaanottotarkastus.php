@@ -231,9 +231,7 @@ if (mysqli_num_rows($result) > 0){
   $a=array();
   while($row = mysqli_fetch_assoc($result)) {
     array_push($a, $row["Sarjanumero"]);
-    
   }
-
 ?>
 
 <script>
