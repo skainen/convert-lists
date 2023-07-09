@@ -99,7 +99,6 @@ if (mysqli_num_rows($result) > 0){
       echo '</table><table>';
     }
     
-
     //Checkboxit
 
     if($row["vastaus"]=='1'){
@@ -126,14 +125,9 @@ if (mysqli_num_rows($result) > 0){
         echo "<tr><th>".$row["kysymys"]."</th></tr><tr>";
       }
       else{
-
         echo "<tr><td><b>".$row["kysymys"]."</b></td>";
       }
-      
       echo "<td class='vasen'>".$row["vastaus"]."</td></tr>";
-
-      
-      
      }
      
      if($row["huom"]!=NULL)
