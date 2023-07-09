@@ -32,8 +32,6 @@ $password = "";
 $dbname = "listaprojekti";
 $date=date("Y-m-d");
 
-
-
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 $conn->set_charset("utf8");
@@ -46,8 +44,6 @@ if(isset($_SESSION["vastaukset"]))
 
 // SQL -kysely
 
-  
-    
     if(!empty($_SESSION['vastaukset'])){
       $vastaukset=$_SESSION['vastaukset'];
 
@@ -75,7 +71,6 @@ if ($conn->query($sql) === TRUE){
       $_SESSION['LaiteID']=$laiteID;
     }
 
-    
 $sql = "INSERT INTO esitietolomake (LaiteID, pvm)
 VALUES ($laiteID, '$date')";
 
@@ -83,17 +78,11 @@ VALUES ($laiteID, '$date')";
 
 if ($conn->query($sql) === TRUE) {
    
-}
-}
-      }
+}}}
       else{
         echo "Error: " . $sql . "<br>" . $conn->error;
 
-      }
-      
-    }
-  }
-}
+      }}}}
 
 else
   {
@@ -116,17 +105,12 @@ if (mysqli_num_rows($result) > 0){
    echo"<tr><th style='font-size:115%;'>Päivämäärä</th><th style='font-size:115%;'>Kauppanimike</th></tr>";
   while($row = mysqli_fetch_assoc($result)) { 
     echo  '<tr><td class="keskelle"><b>'.$row["PVM"].'</b></td><td class="keskelle"><b>'.$row["Laitenimi"].'</b></td></tr>';
-
   }
   
 } else {
 // Jos tuloksia 0, tulostetaan tieto.
   echo "Ei lisättäviä tietoja";
 }
-
-
-
-
 
 $sql2 = "SELECT * FROM laite WHERE LaiteID=$laiteID";
 $result2 = mysqli_query($conn, $sql2);
@@ -150,18 +134,12 @@ if (mysqli_num_rows($result2) > 0){
   $muuta=$row['Muuta'];
   $tilausnro=$row['Tilausnro'];
 
-
-
-
  }
 }
 else{
   echo "Error: " . $sql . "<br>" . $conn->error;
-
-
 }
     
-
 //SQL -kysely
 
 $sql = "SELECT * FROM esitieto_kysymykset";
