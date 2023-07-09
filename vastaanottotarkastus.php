@@ -42,11 +42,6 @@ function compare1()
   session_start();
   ?>
 
-
-
-
-
-
 <form autocomplete="off" action="./vastaanottotarkastus.php" method="post">
   <div class="autocomplete" style="width:300px;">
     <input id="myInput" type="text" pattern="[A-Öa-ö0-9-,.\s]{1,}" name="sarjanumero" placeholder="Sarjanumero">
@@ -58,15 +53,11 @@ function compare1()
 <input type="submit" id="etusivu" value="Etusivulle">
 </div>
 </form>
-
-
+  
 <script>
-  
-  
 
 //Sarjanumeron valinta
   
-
 function autocomplete(inp, arr) {
 
   var currentFocus;
@@ -163,16 +154,12 @@ function autocomplete(inp, arr) {
 
 </script>
 
-
 <?php
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "listaprojekti";
 $date=date("Y-m-d");
-
-
-
 
 // Luo yhteys
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -192,10 +179,7 @@ if(isset($_POST["etusivu"]))
     $a=array();
     while($row = mysqli_fetch_assoc($result)) {
       array_push($a, $row["Sarjanumero"]);
-      
     }
-  
-  
   ?>
   
   <script>
@@ -203,16 +187,12 @@ if(isset($_POST["etusivu"]))
   // Access the array elements
   var passedArray = 
       <?php echo json_encode($a); ?>;
-         
-  
-  
+
   autocomplete(document.getElementById("myInput"), passedArray);
   </script>
-  
-  
-  <?php
-  
 
+  <?php
+    
   echo"<table>
   <!--Taulukon ensimmäinen rivi on lomakkeen otsikko-->
   <tr><th colspan=2 style='font-size:140%;'>Terveydenhuollon laitteen Vastaanottotarkastuspöytäkirja</th><label for='text'></label></th></tr>
@@ -240,8 +220,6 @@ if(isset($_POST["etusivu"]))
   } else {
     echo "0 results";
   }
-
-  
   }
 }
 
@@ -263,13 +241,9 @@ if (mysqli_num_rows($result) > 0){
 // Access the array elements
 var passedArray = 
     <?php echo json_encode($a); ?>;
-       
-
-
 autocomplete(document.getElementById("myInput"), passedArray);
 </script>
-
-
+  
 <?php
 
 }
@@ -352,8 +326,7 @@ if (mysqli_num_rows($result) > 0){
           echo "<tr><td class='vasen' style='font-size:120%;'><label class='container'><input type='hidden' name='vastaus[]' pattern='[A-Öa-ö0-9-,.\s]{1,}' value='0'><input type='checkbox' onclick='this.previousSibling.value=1-this.previousSibling.value'>";
         }
         echo"<span class='checkmark'></span></label><label for='checkbox'>$kysy</label></td></tr>";
-    
-             
+       
         }
         elseif($row["tyyppiID"]==3){
           
@@ -367,9 +340,6 @@ if (mysqli_num_rows($result) > 0){
         }
           echo "<span class='checkmark'></span></label><label for='checkbox' style='font-size:120%;'>$kysy</label></td></tr>";
           echo "<tr><td colspan='2' class='vasen'><label for='text'><b>Huom:</b></label><input type='text' maxlength='150' name='".$kysymysid."' pattern='[A-Öa-ö0-9-,.\s]{0,}' value='".$_POST["$kysymysid"]."'></td></tr>";
-        
-    
-        
         }
         elseif($row["tyyppiID"]==4){
           echo "<tr><th colspan=2><label for='textarea'>$kysy</label></th></tr><tr><td><textarea rows='10' maxlength='1000' name='vastaus[]'  placeholder='Enter text'>$vastaus</textarea></td></tr>";
@@ -378,8 +348,6 @@ if (mysqli_num_rows($result) > 0){
         elseif($row["tyyppiID"]==5){
           
           if($k==0){
-            
-        
             echo "<tr><td><label for='date'><b>$kysy</b></label></td><td><input type='date' id='startDate' onblur='compare()' name ='vastaus[]' placeholder='YYYY-MM-DD' value='$vastaus' required></td></tr>";
         
           }
@@ -404,15 +372,9 @@ if (mysqli_num_rows($result) > 0){
           echo '</script>';
         
       }
-
-
       //Loppuuu
     }
-
-
     else{
-    
-
     if($row["tyyppiID"]==1){
     echo "<tr><td><label for='text'><b>$kysy</b></label></td><td><input type='text' name='vastaus[]' pattern='[A-Öa-ö0-9-,.\s]{1,}' required></td></tr>";
     }
@@ -426,8 +388,6 @@ if (mysqli_num_rows($result) > 0){
       echo "<tr><td colspan='2' class='vasen' style='font-size:120%;'><label class='container'><input type='hidden' name='vastaus[]' value='0'><input type='checkbox' onclick='this.previousSibling.value=1-this.previousSibling.value'>
       <span class='checkmark'></span></label><label for='checkbox'>$kysy</label></td></tr>";
       echo "<tr><td colspan='2' class='vasen'><label for='text'><b>Huom:</b></label><input type='text' name='".$kysymysid."' pattern='[A-Öa-ö0-9-,.\s]{1,}'></td></tr>";
-    
-
     
     }
     elseif($row["tyyppiID"]==4){
@@ -444,8 +404,6 @@ if (mysqli_num_rows($result) > 0){
         echo "<tr><td><label for='date'><b>$kysy</b></label></td><td><input type='date' id='endDate1' onblur='compare1()' name ='vastaus[]' placeholder='YYYY-MM-DD'  required></td></tr>";
       }
       $k++;
-    
-  
 
     }
     elseif($row["tyyppiID"]==6){
@@ -471,20 +429,11 @@ else {
 
 echo '<input type="submit" id="siirry1" name="siirry" value="Siirry"><br><br><br>';
   echo " </form>";
-
-
 }
-
-  
 
 //Lopuksi tietokantayhteyden katkaiseminen.
 $conn->close();
-
 ?>
-
-
-
-
 </body>
 </html>
 
