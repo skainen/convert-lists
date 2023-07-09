@@ -183,8 +183,6 @@ if (mysqli_num_rows($result) > 0){
       echo"<span class='checkmark'></span></label>";
      echo "<label for='checkbox'></label>";
       echo "".$kysy."</td></tr>";
-      /*echo'<tr><td class="vasen"><input type="checkbox" disabled = "disabled" checked>';
-      echo  ''.$row["kysymys"].'</td></tr>';*/
        }
      elseif($row["vastaus"]=='0'){
 
@@ -193,8 +191,6 @@ if (mysqli_num_rows($result) > 0){
       echo"<span class='checkmark'></span></label>";
      echo"<label for='checkbox'></label>";
       echo "".$kysy."</td></tr>";
-      /* echo'<tr><td class="vasen"><input type="checkbox" disabled = "disabled">';
-       echo  ''.$row["kysymys"].'</td></tr>';*/
          }
          
      else
@@ -224,29 +220,6 @@ if (mysqli_num_rows($result) > 0){
       {
         echo "<tr><td class='vasen' style='display:block;'>".$huom."<br></td></tr>";
       }
-
-      // echo"<input type='hidden' form='huom' name='".$kysymysID."' value='".$huom."'>";
-      // echo"<input type='hidden' form='tale' name='".$kysymysID."' value='".$huom."'>";
-     }
-     /*if(isset($_GET["e$kysymysID"]))
-     { 
-       $huom2=$_GET["e$kysymysID"];
-       echo "<tr><td class='vasen'> ".$huom2."<br></td></tr>";
-      // echo"<input type='hidden' form='huom' name='".$kysymysID."' value='".$huom2."'>";
-    //   echo"<input type='hidden' form='tale' name='".$kysymysID."' value='".$huom2."'>";
-     }*/
-     
-     
-     
- 
-
-   
-
-
-   // echo  '<tr><td>'.$row["kysymys"].'</td><td class="vasen">'.$row["vastaus"].'</td></tr>';
-
-
-
     }
   
 } else {
@@ -261,20 +234,7 @@ echo "</table><img src='yhteys.png' alt='yhteys' class='yhteys'></div>";
 
 //Lopuksi tietokantayhteyden katkaiseminen.
 $conn->close();
-
-
-/*
-
-else {
-    // Jos tuloksia 0, tulostetaan tieto.
-      echo "Ei lisättävÄÄ tietoja";
-      echo "Error: " . $sql . "<br>" . $conn->error;
-    }*/
-
     unset($_SESSION["vastaukset"]);
-    
- //}
-    
 ?>
 
 <script>
@@ -298,8 +258,6 @@ function printDiv(printable,
   return true;
 }
 </script>
-
-
 
 <button class="noPrint" id="tulostabtn" onclick="printDiv('printable', 'Title')">Tulosta</button>
 <button class="noPrint" id = "IE" onClick="window.print()">
